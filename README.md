@@ -4,3 +4,11 @@
 </p>
 <hr>
 <h3 align="center">Discord bot that allows you to view DotA 2 player stats</h3>
+
+<hr>
+
+<h1 align="center">Project Guide</h1>
+<h3 align="center">/Bot - Discord bot source code</h2>
+<h3 align="center">/SteamConnect - Kotlin modification of dota2-aghanim library</h2>
+
+<h1 align="center">🍄🍄🍄</h1>
