@@ -4,6 +4,3 @@
 </p>
 <hr>
 <h3 align="center">Discord bot that allows you to view DotA 2 player stats</h3>
-
-<h1 align="center">The Kotlin libraries used in this work:</h1>
-...
