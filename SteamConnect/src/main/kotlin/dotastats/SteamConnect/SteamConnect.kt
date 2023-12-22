@@ -16,6 +16,7 @@ import com.avenga.steamclient.steam.client.steamgameserver.SteamGameServer
 import com.avenga.steamclient.steam.client.steamuser.LogOnDetails
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapter
+import dotastats.SteamConnect.models.DotaMatch
 import dotastats.SteamConnect.models.DotaPlayerStats
 import dotastats.SteamConnect.models.PlayerStatsCallbackHandler
 import okhttp3.OkHttpClient
@@ -56,8 +57,8 @@ class SteamConnect(username: String, password: String, private val apiKey: Strin
         steamClient.connectAndLogin()
     }
 
-    fun getMatchDetails(matchId: Long) : DotaMatchDetails {
-        return dotaClient.getMatchDetails(matchId, timeoutInMillis).get()
+    fun getMatchDetails(matchId: Long) : DotaMatch {
+        return DotaMatch(dotaClient.getMatchDetails(matchId, timeoutInMillis).get())
     }
 
     fun getProfileCard(accountId: Int) : DotaProfileCard {

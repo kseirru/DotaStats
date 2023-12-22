@@ -1,7 +1,7 @@
 package dotastats.app
 
-import dotastats.SteamConnect.SteamConnect
+import dotastats.app.core.DotaStatsBot
 
 fun main() {
-    val steam = SteamConnect()
+    DotaStatsBot()
 }

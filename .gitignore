@@ -9,3 +9,6 @@ SteamConnect/src/test
 
 # Ignore IDEA directory
 .idea
+
+# Ignore .env file
+.env
