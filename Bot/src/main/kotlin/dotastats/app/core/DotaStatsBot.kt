@@ -32,5 +32,7 @@ class DotaStatsBot() {
     companion object {
         private val dotenv: Dotenv = Dotenv.load()
         val steamConnect: SteamConnect = SteamConnect(dotenv["STEAM_LOGIN"], dotenv["STEAM_PASSWORD"], dotenv["STEAM_WEB_API_KEY"])
+
+        val color = 0xb0444f
     }
 }

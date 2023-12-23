@@ -2,7 +2,6 @@ package dotastats.SteamConnect
 
 import com.avenga.steamclient.base.ClientGCProtobufMessage
 import com.avenga.steamclient.enums.SteamGame
-import com.avenga.steamclient.exception.CallbackTimeoutException
 import com.avenga.steamclient.generated.MsgGCHdrProtoBuf
 import com.avenga.steamclient.model.steam.gamecoordinator.dota.account.DotaProfileCard
 import com.avenga.steamclient.model.steam.gamecoordinator.dota.match.DotaMatchDetails
@@ -16,13 +15,12 @@ import com.avenga.steamclient.steam.client.steamgameserver.SteamGameServer
 import com.avenga.steamclient.steam.client.steamuser.LogOnDetails
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapter
-import dotastats.SteamConnect.models.DotaMatch
-import dotastats.SteamConnect.models.DotaPlayerStats
-import dotastats.SteamConnect.models.PlayerStatsCallbackHandler
+import dotastats.SteamConnect.Models.DotaHero
+import dotastats.SteamConnect.Models.DotaPlayerStats
+import dotastats.SteamConnect.Models.PlayerStatsCallbackHandler
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.*
-import java.util.function.Consumer
 
 
 @Suppress("SameParameterValue")
@@ -32,6 +30,8 @@ class SteamConnect(username: String, password: String, private val apiKey: Strin
     private val dotaClient = steamClient.getHandler(SteamGameCoordinator::class.java).getHandler(DotaClient::class.java)
     private val logOnDetails: LogOnDetails = LogOnDetails()
     private val timeoutInMillis = 15000L
+
+    private val heroesMap: Map<Int, DotaHero> = mapOf()
 
     private val okHttpClient: OkHttpClient = OkHttpClient()
     private val moshi: Moshi = Moshi.Builder().build()
@@ -57,8 +57,8 @@ class SteamConnect(username: String, password: String, private val apiKey: Strin
         steamClient.connectAndLogin()
     }
 
-    fun getMatchDetails(matchId: Long) : DotaMatch {
-        return DotaMatch(dotaClient.getMatchDetails(matchId, timeoutInMillis).get())
+    fun getMatchDetails(matchId: Long) :  DotaMatchDetails {
+        return dotaClient.getMatchDetails(matchId, timeoutInMillis).get()
     }
 
     fun getProfileCard(accountId: Int) : DotaProfileCard {
@@ -75,6 +75,10 @@ class SteamConnect(username: String, password: String, private val apiKey: Strin
 
     fun getPlayerMatchHistory(accountId: Int) {
         TODO("Not yes implemented")
+    }
+
+    fun loadHeroes(fileName: String) {
+        // load json file
     }
 
     fun sendToWebAPI(interfaceName: String, methodName: String, version: String, args: Map<String, *>) : Map<String, *>? {
