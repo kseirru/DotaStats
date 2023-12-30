@@ -22,3 +22,11 @@ dependencies {
 application {
     mainClass.set("dotastats.Bot.MainKt")
 }
+
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType<Javadoc>{
+    options.encoding = "UTF-8"
+}

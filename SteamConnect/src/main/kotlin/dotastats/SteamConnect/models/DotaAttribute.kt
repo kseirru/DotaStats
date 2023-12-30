@@ -1,4 +1,4 @@
-package dotastats.SteamConnect.Models
+package dotastats.SteamConnect.models
 
 enum class DotaAttribute {
     STRENGTH,

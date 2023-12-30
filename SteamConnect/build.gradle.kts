@@ -4,6 +4,7 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io/")
 }
 
 dependencies {
@@ -14,6 +15,7 @@ dependencies {
     implementation("org.java-websocket:Java-WebSocket:1.5.5")
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
     implementation("com.github.corese4rch:cvurl-io:1.5.1")
+    implementation("com.github.PlatinumDigitalGroup:JVDF:ba5141c")
     implementation("org.bouncycastle:bcprov-jdk15on:1.70")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.slf4j:slf4j-simple:2.0.9")

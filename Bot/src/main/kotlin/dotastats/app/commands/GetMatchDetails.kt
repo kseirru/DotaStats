@@ -24,7 +24,7 @@ class GetMatchDetails : SlashCommand() {
         val matchDetails = DotaStatsBot.steamConnect.getMatchDetails(event.getOption("matchid")?.asLong!!)
         val embed = EmbedBuilder {
             title = "Match: ${matchDetails.matchId}"
-            color = DotaStatsBot.color
+            color = DotaStatsBot.COLOR
         }
     }
 }
